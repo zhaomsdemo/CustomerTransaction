@@ -20,4 +20,12 @@ public class AccountService {
     public Account findById(String id) {
         return accountRepository.findById(id).get();
     }
+
+    public Account saveAccount(Account account) {
+        return accountRepository.save(account);
+    }
+
+    public void deleteAccount(String id) {
+        accountRepository.deleteById(id);
+    }
 }
