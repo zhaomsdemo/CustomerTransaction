@@ -32,4 +32,26 @@ public class CustomerUtil {
                 .build();
         return customer;
     }
+
+    public static CustomerDto toCustomerDto(Customer customer) {
+        CustomerDto customerDto = CustomerDto.builder()
+                .email(customer.getEmail())
+                .name(customer.getName())
+                .userName(customer.getUserName())
+                .active(customer.getActive())
+                .address(customer.getAddress())
+                .birthdate(customer.getBirthdate())
+                .accounts(customer.getAccounts())
+                .tierAndDetails(customer.getTierAndDetails().values()
+                        .stream().map(
+                                tierAndDetail -> CustomerDto.TierAndDetailDto.builder()
+                                        .id(tierAndDetail.getId())
+                                        .tier(tierAndDetail.getTier())
+                                        .active(tierAndDetail.getActive())
+                                        .benefits(tierAndDetail.getBenefits())
+                                        .build()
+                        ).collect(Collectors.toList()))
+                .build();
+        return customerDto;
+    }
 }

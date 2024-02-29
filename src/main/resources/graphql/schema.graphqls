@@ -1,0 +1,11 @@
+
+type Account {
+    id : String
+    accountId : Int
+    limit : Int
+    products : [String]
+}
+
+type Query {
+    accountById(id : String) : Account
+}

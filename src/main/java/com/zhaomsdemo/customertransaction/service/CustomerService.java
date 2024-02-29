@@ -1,5 +1,6 @@
 package com.zhaomsdemo.customertransaction.service;
 
+import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.zhaomsdemo.customertransaction.dto.CustomerDto;
 import com.zhaomsdemo.customertransaction.entity.Customer;
 import com.zhaomsdemo.customertransaction.repository.CustomerRepository;
