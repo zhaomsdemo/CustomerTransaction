@@ -1,5 +1,29 @@
+type TierAndDetailDto {
+    id : ID!
+    tier : String
+    active : Boolean
+    benefits : [String]
+}
 
-type Account {
+type CustomerDto {
+    id : ID!
+    userName : String
+    name : String
+    address : String
+    email : String
+    active : Boolean
+    accounts : [Int]
+    tierAndDetails : [TierAndDetailDto]
+}
+
+type AccountVo {
+    id : String
+    accountId : Int
+    limit : Int
+    products : [String]
+}
+
+input AccountDto {
     id : String
     accountId : Int
     limit : Int
@@ -7,5 +31,11 @@ type Account {
 }
 
 type Query {
-    accountById(id : String) : Account
+    customerById(id : String) : CustomerDto
+    allCustomers : [CustomerDto]
+    accountById(id : String) : AccountVo
+}
+
+type Mutation {
+    createAccount(accountDto : AccountDto!) : AccountVo!
 }

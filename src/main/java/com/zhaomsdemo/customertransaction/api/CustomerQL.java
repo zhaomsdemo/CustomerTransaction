@@ -10,18 +10,19 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@Component
+@Controller
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomerQL {
 
     final CustomerQueryService customerQueryService;
 
-//    @QueryMapping
+    @QueryMapping
     public CustomerDto customerById(@Argument String id) {
         Customer customer = customerQueryService.findCustomerById(id);
         return CustomerUtil.toCustomerDto(customer);

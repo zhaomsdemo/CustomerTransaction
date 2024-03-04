@@ -35,6 +35,7 @@ public class CustomerUtil {
 
     public static CustomerDto toCustomerDto(Customer customer) {
         CustomerDto customerDto = CustomerDto.builder()
+                .id(customer.getId())
                 .email(customer.getEmail())
                 .name(customer.getName())
                 .userName(customer.getUserName())
