@@ -3,7 +3,6 @@ package com.zhaomsdemo.customertransaction.api;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.zhaomsdemo.customertransaction.dto.AccountDto;
 import com.zhaomsdemo.customertransaction.entity.Account;
-import com.zhaomsdemo.customertransaction.service.AccountQueryService;
 import com.zhaomsdemo.customertransaction.service.AccountService;
 import com.zhaomsdemo.customertransaction.util.AccountUtil;
 import lombok.AccessLevel;
