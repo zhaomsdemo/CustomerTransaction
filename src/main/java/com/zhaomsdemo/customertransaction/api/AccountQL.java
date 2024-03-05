@@ -31,4 +31,16 @@ public class AccountQL implements GraphQLResolver<Account> {
         Account account = AccountUtil.toNewAccount(accountDto);
         return accountService.saveAccount(account);
     }
+
+    @MutationMapping("updateAccount")
+    public Account updateAccount(@Argument String id, @Argument AccountDto accountDto) {
+        Account account = AccountUtil.toUpdateAccount(id, accountDto);
+        return accountService.saveAccount(account);
+    }
+
+    @MutationMapping("deleteAccount")
+    public String deleteAccount(@Argument String id) {
+        accountService.deleteAccount(id);
+        return id;
+    }
 }

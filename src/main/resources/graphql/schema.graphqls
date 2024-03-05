@@ -38,4 +38,6 @@ type Query {
 
 type Mutation {
     createAccount(accountDto : AccountDto!) : AccountVo!
+    updateAccount(id : String!, accountDto : AccountDto!) : AccountVo!
+    deleteAccount(id : String!) : String!
 }
