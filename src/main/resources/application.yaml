@@ -1,0 +1,27 @@
+spring:
+  data:
+    mongodb:
+      database: devdb
+      uri: mongodb://localhost/devdb
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+    path: /graphql
+  security:
+    user:
+      name: zjh
+      password: abc123
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+
+
+
