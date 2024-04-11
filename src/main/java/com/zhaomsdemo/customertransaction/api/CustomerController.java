@@ -5,10 +5,7 @@ import com.zhaomsdemo.customertransaction.entity.Customer;
 import com.zhaomsdemo.customertransaction.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customers")
@@ -21,5 +18,11 @@ public class CustomerController {
     public ResponseEntity<Customer> createNewCustomer(@RequestBody CustomerDto customerDto) {
         Customer newCustomer = customerService.saveCustomer(customerDto);
         return ResponseEntity.ok(newCustomer);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Customer> getCustomerById(@PathVariable String id) {
+        Customer customer = customerService.getCustomerById(id);
+        return ResponseEntity.ok(customer);
     }
 }

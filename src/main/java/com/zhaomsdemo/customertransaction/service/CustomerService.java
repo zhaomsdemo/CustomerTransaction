@@ -18,4 +18,9 @@ public class CustomerService {
         Customer customer = CustomerUtil.toNewCustomer(customerDto);
         return customerRepository.save(customer);
     }
+
+    public Customer getCustomerById(String id) {
+        Customer customer = customerRepository.findById(id).orElse(null);
+        return customer;
+    }
 }
