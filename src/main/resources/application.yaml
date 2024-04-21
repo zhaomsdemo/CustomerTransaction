@@ -23,6 +23,9 @@ management:
   endpoint:
     health:
       show-details: always
+  tracing:
+    sampling:
+      probability: 1.0
 eureka:
   client:
     service-url:
@@ -31,3 +34,8 @@ eureka:
       enabled: true
     register-with-eureka: true
     fetch-registry: true
+server:
+  port: 8001
+logging:
+  pattern:
+    level: ${spring.application.name:},%X{traceId:-},%X{spanId:-}
