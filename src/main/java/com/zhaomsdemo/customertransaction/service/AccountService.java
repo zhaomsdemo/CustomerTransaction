@@ -3,6 +3,7 @@ package com.zhaomsdemo.customertransaction.service;
 import com.zhaomsdemo.customertransaction.entity.Account;
 import com.zhaomsdemo.customertransaction.repository.AccountRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,10 @@ import java.util.List;
 public class AccountService {
 
     private final AccountRepository accountRepository;
+
+    public List<Account> findAll(Pageable pageable) {
+        return accountRepository.findAll(pageable).getContent();
+    }
 
     public List<Account> findByAccountId(Integer accountId) {
         return accountRepository.findByAccountIdEquals(accountId);

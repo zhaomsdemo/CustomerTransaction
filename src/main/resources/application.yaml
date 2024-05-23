@@ -14,6 +14,11 @@ spring:
     user:
       name: zjh
       password: abc123
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.netflix.eureka.EurekaDiscoveryClientConfiguration
+      - org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration
 management:
   endpoints:
     enabled-by-default: true

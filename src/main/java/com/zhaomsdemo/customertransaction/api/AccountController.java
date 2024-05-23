@@ -3,6 +3,7 @@ package com.zhaomsdemo.customertransaction.api;
 import com.zhaomsdemo.customertransaction.entity.Account;
 import com.zhaomsdemo.customertransaction.service.AccountService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,13 @@ import java.util.List;
 public class AccountController {
 
     private final AccountService accountService;
+
+    @GetMapping("/all/{pageSize}/{pageNum}")
+    public ResponseEntity<List<Account>> getAllAccounts(@PathVariable int pageNum,@PathVariable int pageSize) {
+        PageRequest pageRequest = PageRequest.of(pageNum, pageSize);
+        List<Account> accounts = accountService.findAll(pageRequest);
+        return ResponseEntity.ok(accounts);
+    }
 
     @GetMapping("/findByAccountId/{accountId}")
     public ResponseEntity<List<Account>>  findAccountListByAccountId(@PathVariable Integer accountId) {
