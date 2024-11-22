@@ -19,6 +19,9 @@ spring:
       - org.springframework.cloud.netflix.eureka.EurekaDiscoveryClientConfiguration
       - org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
       - org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
 management:
   endpoints:
     enabled-by-default: true

@@ -10,6 +10,7 @@ spring:
       - org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration
       - org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration
       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 de:
   flapdoodle:
     mongodb:
